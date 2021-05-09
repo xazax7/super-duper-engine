@@ -2,18 +2,21 @@
     <div id="app">
         <WeatherBanner />
         <ChapmanCares />
+        <CaresForm />
     </div>
 </template>
 
 <script>
 import WeatherBanner from '@/components/weather-banner';
 import ChapmanCares from '@/components/chapman-cares';
+import CaresForm from '@/components/cares-form';
 
 export default {
     name: 'App',
     components: {
         WeatherBanner,
         ChapmanCares,
+        CaresForm,
     },
 };
 </script>

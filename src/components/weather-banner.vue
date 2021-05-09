@@ -1,9 +1,9 @@
 <template>
     <header class="weather-banner">
         <span v-if="currentTemp">
-            <strong>{{ currentTemp }}&deg;</strong> Is
+            <strong>{{ currentTemp }}&deg;</strong> is the
+            <span>Current Temperature</span>
         </span>
-        <span>Current Temperature</span>
     </header>
 </template>
 
@@ -29,11 +29,10 @@ export default {
             const units = 'imperial';
             const endpoint = `${url}?zip=${zipCode}&appid=${apiKey}&units=${units}`;
 
-            // make api call
-            const response = axios.get(endpoint);
-
-            // display current temp on page
-            this.currentTemp = response.data.main.temp;
+            // make api call, then set 'this.currentTemp' when it receives a response
+            axios.get(endpoint).then((response) => {
+                this.currentTemp = response.data.main.temp;
+            });
         },
     },
 };
